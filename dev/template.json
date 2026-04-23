@@ -1,43 +1,45 @@
 {
-  "version": "2",
-  "templates": [
-    {
-      "type": 3,
-      "title": "TESCAN App",
-      "description": "Deployment template for TESCAN App.",
-      "note": "Registry must be running to deploy new instance. All assigned ports must be unique.",
-      "categories": ["client"],
-      "repository": {
-        "url": "https://github.com/f-chromy/portainer-test",
-        "stackfile": "dev/docker-compose.yml"
-      },
-      "env": [
+    "version": "2",
+    "templates": [
         {
-            "name": "POSTGRES_DB",
-            "label": "Databse name",
-            "description": "Database name"
-        },
-        {
-          "name": "POSTGRES_USER",
-          "label": "Database username"
-        },
-        {
-          "name": "POSTGRES_PASSWORD",
-          "label": "Database password"
-        },
-        {
-          "name": "API_PORT",
-          "label": "API Port"
-        },
-        {
-          "name": "UI_PORT",
-          "label": "UI Port"
-        },
-        {
-          "name": "MQTT_PORT",
-          "label": "MQTT Port"
+            "type": 3,
+            "title": "TESCAN App",
+            "description": "Deployment template for TESCAN App.",
+            "note": "Registry must be running to deploy new instance. All assigned ports must be unique.",
+            "categories": [
+                "client"
+            ],
+            "repository": {
+                "url": "https://github.com/f-chromy/portainer-test",
+                "stackfile": "dev/docker-compose.yml"
+            },
+            "env": [
+                {
+                    "name": "POSTGRES_DB",
+                    "label": "Databse name",
+                    "description": "Database name"
+                },
+                {
+                    "name": "POSTGRES_USER",
+                    "label": "Database username"
+                },
+                {
+                    "name": "POSTGRES_PASSWORD",
+                    "label": "Database password"
+                },
+                {
+                    "name": "API_PORT",
+                    "label": "API Port"
+                },
+                {
+                    "name": "UI_PORT",
+                    "label": "UI Port"
+                },
+                {
+                    "name": "MQTT_PORT",
+                    "label": "MQTT Port"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
