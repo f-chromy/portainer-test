@@ -4,8 +4,8 @@
     {
       "type": 3,
       "title": "TESCAN App",
-      "description": "Deploy a new client instance",
-      "note": "Make sure ports are unique per instance. Registry must be running.",
+      "description": "Deployment template for TESCAN App stack:\n\tWebAPI\n\tUI\n\tMQTT",
+      "note": "Registry must be running to deploy new instance.\nAll assigned ports must be unique.",
       "categories": ["client"],
       "repository": {
         "url": "https://github.com/f-chromy/portainer-test",
