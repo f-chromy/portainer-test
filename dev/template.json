@@ -9,7 +9,7 @@
       "categories": ["client"],
       "repository": {
         "url": "https://github.com/f-chromy/portainer-test",
-        "stackfile": "dev/docker-compose.yaml"
+        "stackfile": "dev/docker-compose.yml"
       },
       "env": [
         {
