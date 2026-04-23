@@ -40,11 +40,11 @@ services:
       mqtt:
         condition: service_started
     environment:
-      DB_HOST: db
+      DB_URL: db
       DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB}
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
-      DB_NAME: ${POSTGRES_DB}
       AUTH_SECRET_KEY: ${AUTH_SECRET_KEY}
       MQTT_HOST: mqtt
       MQTT_PORT: 1883
