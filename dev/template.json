@@ -14,7 +14,8 @@
       "env": [
         {
             "name": "POSTGRES_DB",
-            "label": "Databse name"
+            "label": "Databse name",
+            "description": "Database name"
         },
         {
           "name": "POSTGRES_USER",
