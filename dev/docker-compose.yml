@@ -2,16 +2,15 @@ services:
 
   db:
     image: postgres:16-alpine
-    container_name: ${STACK_NAME}_db
     restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_DB: test_db
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - db_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d test_db"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -21,18 +20,18 @@ services:
 
   mqtt:
     image: eclipse-mosquitto:2
-    container_name: ${STACK_NAME}_mqtt
     restart: always
     volumes:
       - mqtt_config:/mosquitto/config
       - mqtt_data:/mosquitto/data
       - mqtt_logs:/mosquitto/log
+    ports:
+      - "${MQTT_PORT}:1883"
     networks:
       - internal
 
   api:
-    image: ${REGISTRY}/webapi:${APP_VERSION}
-    container_name: ${STACK_NAME}_api
+    image: localhost:5000/webapi:latest
     restart: always
     depends_on:
       db:
@@ -42,7 +41,7 @@ services:
     environment:
       DB_URL: db
       DB_PORT: 5432
-      DB_NAME: ${POSTGRES_DB}
+      DB_NAME: test_db
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       AUTH_SECRET_KEY: ${AUTH_SECRET_KEY}
@@ -55,8 +54,7 @@ services:
       - external
 
   ui:
-    image: ${REGISTRY}/ui:${APP_VERSION}
-    container_name: ${STACK_NAME}_ui
+    image: localhost:5000/ui:latest
     restart: always
     depends_on:
       - api
@@ -64,9 +62,7 @@ services:
       VITE_API_URL: 17692290-9ebe-4131-af09-5dcd5616c91d
       VITE_ENV_TEXT: 01b86e83-6e27-4659-978f-243f3d599f1b
       VITE_ENV_COLOR: 2357a9e2-338f-4da3-9e07-0c444f1b7bea
-      API_URL: ${API_URL}
-      ENV_TEXT: ${ENV_TEXT}
-      ENV_COLOR: ${ENV_COLOR}
+      API_URL: http://localhost:${API_PORT}
     ports:
       - "${UI_PORT}:8080"
     networks:

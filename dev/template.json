@@ -4,7 +4,7 @@
     {
       "type": 3,
       "title": "TESCAN App",
-      "description": "Deploy a new client instance - API, UI, DB, MQTT",
+      "description": "Deploy a new client instance",
       "note": "Make sure ports are unique per instance. Registry must be running.",
       "categories": ["client"],
       "repository": {
@@ -13,71 +13,24 @@
       },
       "env": [
         {
-          "name": "STACK_NAME",
-          "label": "Stack Name",
-          "description": "Unique name for this instance e.g. client-a"
-        },
-        {
-          "name": "REGISTRY",
-          "label": "Registry URL",
-          "default": "localhost:5000",
-          "description": "Docker registry address"
-        },
-        {
-          "name": "APP_VERSION",
-          "label": "App Version",
-          "default": "latest"
-        },
-        {
-          "name": "POSTGRES_DB",
-          "label": "Database Name",
-          "description": "e.g. client_a_db"
-        },
-        {
           "name": "POSTGRES_USER",
-          "label": "Database User",
-          "description": "e.g. client_a_user"
+          "label": "Database username"
         },
         {
           "name": "POSTGRES_PASSWORD",
-          "label": "Database Password"
-        },
-        {
-          "name": "AUTH_SECRET_KEY",
-          "label": "Auth Secret Key"
+          "label": "Database password"
         },
         {
           "name": "API_PORT",
-          "label": "API Port",
-          "default": "8001",
-          "description": "Must be unique per instance"
+          "label": "API Port"
         },
         {
           "name": "UI_PORT",
-          "label": "UI Port",
-          "default": "3001",
-          "description": "Must be unique per instance"
+          "label": "UI Port"
         },
         {
           "name": "MQTT_PORT",
-          "label": "MQTT Port",
-          "default": "1884",
-          "description": "Must be unique per instance"
-        },
-        {
-          "name": "API_URL",
-          "label": "API URL",
-          "description": "e.g. http://your-server-ip:8001"
-        },
-        {
-          "name": "ENV_TEXT",
-          "label": "Env Text",
-          "default": "test"
-        },
-        {
-          "name": "ENV_COLOR",
-          "label": "Env Color",
-          "default": "#ffffff"
+          "label": "MQTT Port"
         }
       ]
     }
