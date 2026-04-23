@@ -5,7 +5,6 @@
             "type": 3,
             "title": "TESCAN App",
             "description": "Deployment template for TESCAN App.",
-            "note": "Registry must be running to deploy new instance. All assigned ports must be unique.",
             "categories": [
                 "client"
             ],
@@ -16,8 +15,7 @@
             "env": [
                 {
                     "name": "POSTGRES_DB",
-                    "label": "Databse name",
-                    "description": "Database name"
+                    "label": "Database name"
                 },
                 {
                     "name": "POSTGRES_USER",
