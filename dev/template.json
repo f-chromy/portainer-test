@@ -3,12 +3,12 @@
   "templates": [
     {
       "type": 3,
-      "title": "Client App",
+      "title": "TESCAN App",
       "description": "Deploy a new client instance - API, UI, DB, MQTT",
       "note": "Make sure ports are unique per instance. Registry must be running.",
       "categories": ["client"],
       "repository": {
-        "url": "https://git.betrian.cz/tescan/tescan-portainer",
+        "url": "https://github.com/f-chromy/portainer-test",
         "stackfile": "dev/docker-compose.yml"
       },
       "env": [
